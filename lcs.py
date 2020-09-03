@@ -1,3 +1,5 @@
+# lcs : longest common subarray
+# Given two strings A and B, find the longest common subarray between them
 #code
 
 def lcs(A, B):
@@ -10,20 +12,17 @@ def lcs(A, B):
             else: 
                 lcs_table[i].append(False)
   
-    ans = lcs_recur(A, B, lcs_table)
+    ans = lcs_recur(A, B, len(A), len(B), lcs_table)
     return ans
 
-def lcs_recur(A, B, lcs_table):
-    a_len, b_len = len(A), len(B)
-    print(a_len, b_len)
-    if lcs_table[a_len][b_len]: 
-        return lcs_table[a_len][b_len]
+def lcs_recur(A, B, m, n, lcs_table):
+    if m == 0 or n == 0 or lcs_table[m][n]: 
+        return lcs_table[m][n]
     if A[-1] == B[-1]:
-        lcs_table[a_len][b_len] = 1 + lcs_recur(A[:-2], B[:-2], lcs_table)
+        lcs_table[m][n] = 1 + lcs_recur(A[:-1], B[:-1], m-1, n-1, lcs_table)
     else: 
-        lcs_table[a_len][b_len] = max(lcs_recur(A[:-2], B[:-1], lcs_table), lcs_recur(A[:-1], B[:-2], lcs_table))
-    print(lcs_table)
-    return lcs_table[a_len][b_len]
+        lcs_table[m][n] = max(lcs_recur(A[:-1], B, m-1, n, lcs_table), lcs_recur(A, B[:-1], m, n-1, lcs_table))
+    return lcs_table[m][n]
     
 if __name__=="__main__":
     t=int(input())
@@ -31,5 +30,4 @@ if __name__=="__main__":
         n_a, n_b = tuple(int(x) for x in input().split())
         A = list(input().strip())
         B = list(input().strip())
-        print(A, B) 
         print(lcs(A, B))
