@@ -1,5 +1,4 @@
-from itertools import combinations as p 
-
+# Taken from solution
 class Solution(object):
     def generateParenthesis(self, n):
         def generate(A = []):
