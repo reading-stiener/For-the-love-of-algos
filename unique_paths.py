@@ -1,7 +1,6 @@
 class Solution:
     def uniquePaths(self, m, n):
         memo =  [[-1 for j in range(n)] for i in range(m)]
-        print(memo)
         def unique_paths(row, col, memo):
             if row == m-1  or col == n-1:
                 return 1

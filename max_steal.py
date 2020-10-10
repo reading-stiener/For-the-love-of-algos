@@ -8,4 +8,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.rob([2,7,9,3,1]))
+    print(s.rob([1,3,4,5,2,45,4]))
