@@ -57,7 +57,7 @@ def countSentences(wordSet, sentences):
             word_sorted = "".join(sorted(list(word)))
             sentence_perm *= anagram_count[word_sorted]
         total_sentences.append(sentence_perm) 
-    return total_sentences
+    return  nyuhj67njjjjm ijuu7 
                     
 
 if __name__ == "__main__": 

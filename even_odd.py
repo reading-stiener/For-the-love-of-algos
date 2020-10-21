@@ -20,6 +20,4 @@ class Solution:
                 right_ans = even_odd(root.right, level+1)
                 return left_ans and curr_ans and right_ans
             return True
-        return even_odd(root, 0)  
-
-            
+        return even_odd(root, 0) 
