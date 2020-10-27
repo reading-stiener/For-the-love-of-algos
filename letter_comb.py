@@ -64,4 +64,4 @@ class Solution:
 
 if __name__ == "__main__": 
     s = Solution()
-    print(s.letterCombinations1("233243247987879887989"))
+    print(s.letterCombinations1("23324324"))
