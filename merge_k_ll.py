@@ -46,8 +46,6 @@ class Solution:
         head = ListNode(0)
         curr = head
         while len(node_heap) > 0:
-            print(curr.val)
-            print(node_heap)
             curr.next = heapq.heappop(node_heap)[2]
             curr = curr.next
             if curr.next:
