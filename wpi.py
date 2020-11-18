@@ -1,24 +1,22 @@
 from collections import deque
 class Solution:
     def longestWPI(self, hours):
-        stack = deque()
-        n =  len(hours)
-        longest_int = 0
+        res, n = 0, len(hours)
+        seen = {}
+        score = 0
         for i in range(n):
-            if hours[i] > 8:
-                stack.append(hours[i])
-            elif hours[i] <= 8 and len(stack)>0:
-                temp_list = [hours[i]]
-                while len(stack) > 0:
-                    temp_list.append(stack.pop())
-                    temp_list.reverse()
-                if longest_int < len(temp_list):
-                    longest_int = len(temp_list)
-        if longest_int < len(stack):
-            longest_int = len(stack)
-        return longest_int
+            score=score+1 if hours[i] > 8 else score-1
+            if score > 0:
+                res = i + 1
+            else:
+                if seen.get(score, None) == None:
+                    seen[score] = i
+                if seen.get(score-1, None) != None:
+                    print("This")
+                    res = max(i-seen[score-1], res)
+        return res
+    
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.longestWPI([9,9,6,0,6,6,9, 9, 10,12]))
-    print(s.longestWPI([3,4,5,1]))
+    print(s.longestWPI([6,9,6]))
