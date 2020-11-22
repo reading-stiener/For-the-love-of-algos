@@ -12,7 +12,6 @@ class Solution:
                     elif dp[i+1][j-1] == 1:
                         dp[i][j] = 1                  
         tot = 0
-        print(dp)
         for l in dp:
             tot += sum(l)
         return tot
