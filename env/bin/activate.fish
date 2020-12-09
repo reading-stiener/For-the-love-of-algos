@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/camel/Documents/Interview_Prep/env"
+set -gx VIRTUAL_ENV "/Users/abhijeetpradhan/Documents/For-the-love-of-algos/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
