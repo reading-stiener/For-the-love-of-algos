@@ -58,5 +58,6 @@ class Solution:
         return t_sum(nums)
 
 if __name__ == "__main__":
-    s = Solution()
-    print(s.threeSum([0,0,1,-1,2,-2]))
+    # s = Solution()
+    # print(s.threeSum([0,0,1,-1,2,-2]))
+    
