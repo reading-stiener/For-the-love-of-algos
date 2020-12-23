@@ -13,6 +13,10 @@ public class Main {
             return x + sum(x-1);
         }
     }
+    // testing nested classes
+    private class InnerClass { 
+        int y = 5;
+    }
     public static void main(String[] args) {
         int myInt = 9;
         double myDouble = myInt; // Automatic casting: int to double
@@ -38,6 +42,13 @@ public class Main {
             testPrint("yoyo");
         }
         System.out.println(sum(5));
+        Main.InnerClass test =  s.new InnerClass();
+        System.out.println(test.y);
+
+        // call Animal and pig classes
+        Pig p = new Pig();
+        p.animalSound();
+        p.sleep();
 
     }
 }
