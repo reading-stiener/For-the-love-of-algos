@@ -1,5 +1,6 @@
 import java.util.*;
 class MultiplyStrings {
+    // doesn't work with large inputs
     public String multiply(String num1, String num2) {
         HashMap<Character, Integer> map = new HashMap<Character, Integer>(); 
         map.put('0', 0);
@@ -53,8 +54,41 @@ class MultiplyStrings {
         }
         return stringNum.reverse().toString();
     }
+    public String multiplyBetter(String num1, String num2) { 
+        if (num1.equals("0") || num2.equals("0")) { 
+            return "0";
+        }
+        int[] mul = new int[401]; 
+        int start = 400;
+        StringBuilder mulStr = new StringBuilder();
+        int idx = start;
+        for (int i = num1.length()-1; i >= 0; i--) { 
+            int carry = 0;
+            idx = start;
+            for (int j = num2.length()-1; j >= 0; j--) { 
+                int val = (num1.charAt(i) - '0') * (num2.charAt(j) - '0') + mul[idx] + carry;
+                mul[idx] = val % 10;
+                carry = val / 10;
+                idx--;
+            }
+            while (carry > 0) { 
+                //System.out.println("array val " + Integer.toString(mul[idx]));
+                mul[idx] = (carry + mul[idx]) % 10;
+                carry = mul[idx] / 10; 
+                idx--;
+            }
+            start--; 
+        }
+        for (int i = idx+1; i <= 400; i++) { 
+            mulStr.append(Integer.toString(mul[i]));
+        }
+        //System.out.println(Arrays.toString(mul));
+        return mulStr.toString();
+    }   
+
     public static void main(String[] args) { 
         MultiplyStrings s = new MultiplyStrings();
-        System.out.println(s.multiply("6913259244", "71103343"));
+        System.out.println(s.multiplyBetter("9301", "0"));
+        //System.out.println(10.1/10);
     }
 }
