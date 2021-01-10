@@ -9,9 +9,9 @@ class Solution:
             else:
                 return pow_two(n/2)
         if num == 0:
-            return 0
+            return [0]
         elif num == 1: 
-            return 1
+            return [0, 1]
         count_list = [0, 1]
         i = 2
         track_idx = 0
@@ -24,6 +24,19 @@ class Solution:
             track_idx += 1
             i += 1
         return count_list
+    # cool bit wise methods
+    def countBits1(self, num: int) -> List[int]:
+        result = [0]*(num+1)
+        for i in range(1, num+1):
+            result[i] = result[i & (i-1)] + 1
+        return result
+    # public int[] countBits(int num) {
+    #     int[] ans = new int[num + 1];
+    #     for (int i = 1; i <= num; ++i)
+    #         ans[i] = ans[i & (i - 1)] + 1;
+    #     return ans;
+    # }
+}
             
 if __name__ == "__main__":
     s = Solution()

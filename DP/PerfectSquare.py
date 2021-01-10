@@ -26,7 +26,6 @@ class Solution:
         while i**2 <= n:
             squares.append(i**2)
             i += 1
-        #dp_table = [[math.inf for col in range(len(squares))] for row in range(n)]
         min_row = [math.inf for row in range(n)]
         for r in range(n):
             for c in range(len(squares)):
